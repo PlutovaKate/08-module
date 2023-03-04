@@ -2,12 +2,9 @@ import throttle from 'lodash.throttle';
 
 const formEl = document.querySelector('.feedback-form');
 
-const inputEmailEl = document.querySelector('input');
-const inputMessageEl = document.querySelector('textarea');
-
 const FEEDBACK_FORM = 'feedback-form-state';
 
-formEl.addEventListener('input', formInput);
+formEl.addEventListener('input', throttle(formInput, 500));
 formEl.addEventListener('submit', formSubmit);
 
 let formData = {};
